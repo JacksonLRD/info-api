@@ -25,6 +25,7 @@ const createMiddlewares = (app: express.Express): void => {
     if (error instanceof AppError) {
       return res.status(error.status).json({ status: 'error', message: error.message });
     }
+    next(error);
   });
 };
 
